@@ -13,7 +13,7 @@ const fetchData = (artist) => {
         renderDisplay()
     })
     .catch(()=>{
-        alert('no user found')
+        alert('Oops.. artisit does not exsit ')
     })
 }
 
@@ -21,7 +21,7 @@ const submit = () =>{
     submitBtn.addEventListener('click',()=>{
         loadingDisplay()
         if(inputBox.value === "" || inputBox.value === null){
-            alert("type a artist!")
+            alert("Input area can't be empty")
             return
         }
         let artists = inputBox.value
@@ -32,7 +32,7 @@ submit()
 
 const renderDisplay = () =>{
     let render = album.map(arr=>{
-        return (`<div class="album-info-container"> 
+        return (`<div class="content-container"> 
                     <ul>
                         <li><img src=${arr.artworkUrl60} alt="album-picture" class="album-img"/>
                         <li>Artist: <b style="color:green">${arr.artistName}</b></li>
@@ -51,11 +51,11 @@ const renderDisplay = () =>{
 
 const loadingDisplay = () =>{
     var loading = document.getElementById ( "loader" ) ;
-    loading.style.visibility = "visible" ;
+    loading.style.visibility = "visible" 
     
     // still ned to figure out to do it right...
     setTimeout(()=>{
-        loading.style.visibility = "hidden" ;
+        loading.style.visibility = "hidden" 
     },500)
 //     if ( page_request.readyState == 1 )
 //       loading.style.visibility = "visible" ;
@@ -68,32 +68,3 @@ const loadingDisplay = () =>{
 //   }
 }
 
-const deleteAlbumBtn = () =>{
-    const deleteBtn = document.querySelectorAll('.delete-btn')
-    deleteBtn.forEach(item=>{
-        item.addEventListener('click',(e)=>{
-            let newArray = [...album]
-            for (let i = 0; i < newArray.length;i++){
-                if(+e.target.id === newArray[i].collectionId){
-                    newArray.splice(i,1)
-                }
-            }
-            let newRender = newArray.map(newArr=>{
-                return (`<div class="album-info-container"> 
-                            <ul>
-                                <li><img src="${newArr.artworkUrl60}" alt="album-picture" class="album-img"/>
-                                <li>Artist: <b style="color:green">${newArr.artistName}</b></li>
-                                <li>Album Name: <b style="color:red">${newArr.collectionName.toUpperCase()}</b></li>
-                                <li>Album Price: <b style="color:blue">$${newArr.collectionPrice}</b></li>
-                                <li><button class="delete-btn" id="${newArr.collectionId}">Close</button></li>
-                            </ul>
-                        </div>
-                `)
-            }).join('')
-            setTimeout(()=>{
-                deleteAlbumBtn()
-            },1000)
-            contentContainer.innerHTML = newRender
-        })
-    })
-}

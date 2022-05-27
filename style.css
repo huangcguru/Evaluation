@@ -71,25 +71,12 @@
     gap: .25rem;
     margin-top: 1rem;
 }
-    
-/* .card {
+
+.card {
     border: 1px solid black;
     background-color: lightblue;
     padding: .5rem;
 }
-
-.card > .header {
-    margin-bottom: .25rem;
-}
-
-.card > .body {
-    font-size: .8rem;
-    color: silver;
-}
-
-.hide {
-    display: none;
-} */
 
 .loader {
     visibility: hidden;

@@ -70,35 +70,3 @@ const renderDisplay = () => {
   }, 1000);
   contentContainer.innerHTML = render;
 };
-
-// var loader = document.getElementById("loader");
-
-// function displayLoading() {
-//   loading.style.visibility = "visible";
-//   setTimeout(() => {
-//     loading.style.visibility = "hidden";
-//   }, 5000);
-// }
-
-// function hideLoading() {
-//   loading.style.visibility = "hidden";
-// }
-
-// const loadingDisplay = () => {
-//   var loading = document.getElementById("loader");
-//   loading.style.visibility = "visible";
-
-//   // still ned to figure out to do it right...
-//   setTimeout(() => {
-//     loading.style.visibility = "hidden";
-//   }, 500);
-//   //     if ( page_request.readyState == 1 )
-//   //       loading.style.visibility = "visible" ;
-
-//   //   // when loaded successfully
-//   //   if (page_request.readyState == 4 && (page_request.status==200 || window.location.href.indexOf("http")==-1))
-//   //   {
-//   //       document.getElementById(containerid).innerHTML=page_request.responseText ;
-//   //       loading.style.visibility = "hidden" ;
-//   //   }
-// };
